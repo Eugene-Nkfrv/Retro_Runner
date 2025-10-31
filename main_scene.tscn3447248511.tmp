@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cugk74kvjekvi"]
+
+[ext_resource type="Script" uid="uid://b0wslp5r3odqa" path="res://Script/road_renderer.gd" id="1_0f027"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Player" type="Area2D" parent="."]
+
+[node name="RoadRenderer" type="Node2D" parent="."]
+script = ExtResource("1_0f027")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
