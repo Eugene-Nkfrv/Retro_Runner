@@ -1,0 +1,11 @@
+Camera2D
+XRCamera3D
+XROrigin3D
+AudioStreamPlayer
+Button
+TouchScreenButton
+Node2D
+CanvasLayer
+Area2D
+CollisionShape2D
+Sprite2D
