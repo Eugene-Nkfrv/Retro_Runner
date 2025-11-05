@@ -1,3 +1,8 @@
+Camera2D
+SubViewport
+SubViewportContainer
+HBoxContainer
+Node
 GridContainer
 Button
 MarginContainer
@@ -5,10 +10,5 @@ AudioStreamPlayer2D
 CanvasLayer
 TextureRect
 VBoxContainer
-Camera2D
 XRCamera3D
 XROrigin3D
-AudioStreamPlayer
-TouchScreenButton
-Node2D
-Area2D
