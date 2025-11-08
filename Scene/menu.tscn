@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5u7p580no14i"]
+[gd_scene load_steps=4 format=3 uid="uid://b5u7p580no14i"]
 
 [ext_resource type="Texture2D" uid="uid://cj4hm73rfu1n" path="res://Assets/background.png" id="1_b23qx"]
-[ext_resource type="Script" uid="uid://bnv1p2uxqkry2" path="res://Script/camera_vr.gd" id="1_eas8t"]
 
 [sub_resource type="GDScript" id="GDScript_eas8t"]
 script/source = "extends Node
@@ -17,91 +16,57 @@ func _on_quit_pressed() -> void:
 script/source = "extends Button
 "
 
-[node name="SceneVR" type="Node"]
-script = ExtResource("1_eas8t")
+[node name="menu" type="Node2D"]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.9968778, 0.9999747)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(640, 720)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
-anchor_mode = 0
-
-[node name="Node2D" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="HBoxContainer/SubViewportContainer/SubViewport/Node2D"]
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer"]
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -779.0
-offset_top = -413.00003
-offset_right = 934.0
-offset_bottom = 580.0
+offset_left = -223.99998
+offset_top = -356.0
+offset_right = 209.0
+offset_bottom = 637.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.9062219, 0.9062219)
+scale = Vector2(1, 0.85)
 texture = ExtResource("1_b23qx")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -216.0
-offset_top = -89.5
-offset_right = 216.0
-offset_bottom = 185.88464
+offset_left = -220.0
+offset_top = -102.0
+offset_right = 212.0
+offset_bottom = 173.38464
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="menu" type="VBoxContainer" parent="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer"]
+[node name="menu" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 script = SubResource("GDScript_eas8t")
 
-[node name="start" type="Button" parent="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer/menu"]
+[node name="start" type="Button" parent="CanvasLayer/MarginContainer/menu"]
 layout_mode = 2
 theme_override_constants/h_separation = 20
 theme_override_font_sizes/font_size = 32
 text = "ИГРАТЬ"
 
-[node name="settings" type="Button" parent="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer/menu"]
+[node name="settings" type="Button" parent="CanvasLayer/MarginContainer/menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "НАСТРОЙКИ"
 
-[node name="quit" type="Button" parent="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer/menu"]
+[node name="quit" type="Button" parent="CanvasLayer/MarginContainer/menu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "ВЫХОД"
 script = SubResource("GDScript_u2k45")
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(640, 720)
-size_2d_override_stretch = true
-render_target_update_mode = 4
-
-[node name="Camera2D" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport"]
-position = Vector2(3, 0)
-anchor_mode = 0
-
-[connection signal="pressed" from="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer/menu/start" to="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer/menu" method="_on_start_pressed"]
-[connection signal="pressed" from="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer/menu/quit" to="HBoxContainer/SubViewportContainer/SubViewport/Node2D/CanvasLayer/MarginContainer/menu" method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/menu/start" to="CanvasLayer/MarginContainer/menu" method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/menu/quit" to="CanvasLayer/MarginContainer/menu" method="_on_quit_pressed"]

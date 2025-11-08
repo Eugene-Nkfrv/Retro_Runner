@@ -1,3 +1,5 @@
+CanvasLayer
+Node2D
 Camera2D
 SubViewport
 SubViewportContainer
@@ -7,8 +9,6 @@ GridContainer
 Button
 MarginContainer
 AudioStreamPlayer2D
-CanvasLayer
 TextureRect
 VBoxContainer
 XRCamera3D
-XROrigin3D
